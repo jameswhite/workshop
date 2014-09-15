@@ -1,0 +1,11 @@
+apt-get install -y debhelper doxygen
+
+gpg --keyserver pgpkeys.mit.edu --recv-key  8B48AD6246925553
+gpg -a --export 8B48AD6246925553 | sudo apt-key add -
+
+grep "deb-src ftp://ftp.sara.nl/debian" /etc/apt/source.list || echo "deb-src ftp://ftp.sara.nl/debian unstable main contrib non-free" >> /etc/apt/sources.list
+apt-get update
+
+[ ! -d /opt/local/src ] && mkdir -p /opt/local/src
+( cd /opt/local/src; apt-get source lmdb )
+( cd lmdb* ; debian/rules binary )
