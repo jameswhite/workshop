@@ -19,5 +19,10 @@ apt-get update
   cd /opt/local/src
   wget https://s3.amazonaws.com/cfengine.package-repos/tarballs/cfengine-3.6.1.tar.gz
   tar cvzf cfengine-3.6.1.tar.gz > tar.out 2>tar.err
-  ( cd cfengine-3.6.1; ./configure > configure.out 2>configure.err;  make > make.out 2>make.err )
+  (
+    cd cfengine-3.6.1;
+    ./configure > configure.out 2>configure.err;
+    make > make.out 2>make.err
+    make install > install.out 2>install.err
+  )
 )
