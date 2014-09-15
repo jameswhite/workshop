@@ -1,4 +1,4 @@
-apt-get install -y debhelper doxygen libssl-dev libpam0g-dev
+apt-get install -y debhelper doxygen libssl-dev libpam0g-dev screen automake perl autoconf m4
 
 gpg --keyserver pgpkeys.mit.edu --recv-key  8B48AD6246925553
 gpg -a --export 8B48AD6246925553 | sudo apt-key add -
@@ -18,6 +18,6 @@ apt-get update
 (
   cd /opt/local/src
   wget https://s3.amazonaws.com/cfengine.package-repos/tarballs/cfengine-3.6.1.tar.gz
-  tar cvzf cfengine-3.6.1.tar.gz;
-  ( cd cfengine-3.6.1; ./configure; make )
+  tar cvzf cfengine-3.6.1.tar.gz > tar.out 2>tar.err
+  ( cd cfengine-3.6.1; ./configure > configure.out 2>configure.err;  make > make.out 2>make.err )
 )
