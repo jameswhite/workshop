@@ -1,4 +1,4 @@
-apt-get install -y debhelper doxygen libssl-dev
+apt-get install -y debhelper doxygen libssl-dev libpam0g-dev
 
 gpg --keyserver pgpkeys.mit.edu --recv-key  8B48AD6246925553
 gpg -a --export 8B48AD6246925553 | sudo apt-key add -
@@ -19,5 +19,5 @@ apt-get update
   cd /opt/local/src
   wget https://s3.amazonaws.com/cfengine.package-repos/tarballs/cfengine-3.6.1.tar.gz
   tar cvzf cfengine-3.6.1.tar.gz;
-  ( cd cfengine-3.6.1; ./configure )
+  ( cd cfengine-3.6.1; ./configure; make )
 )
